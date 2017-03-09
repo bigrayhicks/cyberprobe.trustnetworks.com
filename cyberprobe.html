@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Cyberprobe (version 0.81, 24 January 2017),
+<!-- This manual is for Cyberprobe (version 0.90, 9 March 2017),
 which is an example in the Texinfo documentation.
 
 Copyright (C) 2013-2014 Cyber MacGeddon
@@ -13,10 +13,10 @@ Texts.  A copy of the license is included in the section entitled
 "GNU Free Documentation License". -->
 <!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Cyberprobe 0.81</title>
+<title>Cyberprobe 0.90</title>
 
-<meta name="description" content="Cyberprobe 0.81">
-<meta name="keywords" content="Cyberprobe 0.81">
+<meta name="description" content="Cyberprobe 0.90">
+<meta name="keywords" content="Cyberprobe 0.90">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -56,7 +56,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Cyberprobe 0.81</h1>
+<h1 class="settitle" align="center">Cyberprobe 0.90</h1>
 
 
 
@@ -70,7 +70,7 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 <a name="Cyberprobe"></a>
 <h1 class="top">Cyberprobe</h1>
 
-<p>This is the manual for Cyberprobe (version 0.81, 24 January 2017).
+<p>This is the manual for Cyberprobe (version 0.90, 9 March 2017).
 </p>
 <img src="cyberprobe-overview.png" alt="png">
 
@@ -267,6 +267,14 @@ defence. It&rsquo;s time to get ready for Cybermaggedon.
 <p>Cyberprobe releases:
 </p>
 <dl compact="compact">
+<dt><code>0.90</code></dt>
+<dd><p>NTP handling, DNS output format changed, robustness fixes in TCP handling.
+</p>
+</dd>
+<dt><code>0.83</code></dt>
+<dd><p>Point release, minor fixes.
+</p>
+</dd>
 <dt><code>0.80</code></dt>
 <dd><p>Added optional TLS support for packet streams to cyberprobe and cybermon.
 This change refactors the cybermon command line interface.  See documentation
@@ -445,7 +453,7 @@ operating system you are using.  Packages are currently available for:
 </li></ul>
 
 <p>Downloads are available on the project page at
-<a href="http://cyberprobe.sourceforge.net">http://cyberprobe.sourceforge.net</a>.
+<a href="http://github.com/cybermaggedon/cyberprobe/releases">http://github.com/cybermaggedon/cyberprobe/releases</a>.
 </p>
 <p>Fedora packages are installed using <code>yum</code>:
 </p>
@@ -480,7 +488,8 @@ package will exist in your distribution, at other times you need to install a
 utility called <code>luarocks</code> to install the package.
 </p>
 <p>Source downloads are available on the project page at
-<a href="http://cyberprobe.sourceforge.net">http://cyberprobe.sourceforge.net</a>, look for the <samp>.tar.gz</samp> file.
+<a href="http://github.com/cybermaggedon/cyberprobe/releases">http://github.com/cybermaggedon/cyberprobe/releases</a>,
+look for the <samp>.tar.gz</samp> file.
 </p>
 <p>These files can be unwrapped, then configured:
 </p>
@@ -515,8 +524,8 @@ make
 sudo make install
 </pre></div>
 
-<p>Powered by SourceForge, project page is at
-<a href="http://www.sourceforge.net/p/cyberprobe">http://www.sourceforge.net/p/cyberprobe</a>.
+<p>Powered by Github, project page is at
+<a href="http://cyberprobe.trustnetworks.com">http://cyberprobe.trustnetworks.com</a>.
 </p>
 <a name="index-Docker"></a>
 <a name="index-Containers"></a>
@@ -563,7 +572,8 @@ of the Cassandra servers.
 <div class="example">
 <pre class="example">sudo docker -it --rm -v \
   docker.io/cybermaggedon/cybermon \
-  cybermon-cassandra tcp://147.146.0.1:5555 10.142.146.6,10.142.146.8
+  cybermon-cassandra tcp://147.146.0.1:5555 \
+  10.142.146.6,10.142.146.8
 </pre></div>
 
 </li></ul>
@@ -624,7 +634,7 @@ Next: <a href="#Using-cyberprobe" accesskey="n" rel="next">Using <code>cyberprob
 <p>For installation, see <a href="#Obtaining-the-software">Obtaining the software</a>.
 There&rsquo;s a fair amount of development taking place in the git repository, so
 you probably want to get the a package, or use the latest release on the
-downloads page (<a href="http://sourceforge.net/projects/cyberprobe/files/">http://sourceforge.net/projects/cyberprobe/files/</a>).
+downloads page (<a href="http://github.com/cybermaggedon/cyberprobe/releases">http://github.com/cybermaggedon/cyberprobe/releases</a>).
 </p>
 <a name="index-Executables"></a>
 <a name="index-Build-targets"></a>
@@ -679,8 +689,8 @@ downloads page (<a href="http://sourceforge.net/projects/cyberprobe/files/">http
 <a name="index-Discussion-forums"></a>
 
 <p>If it installs / builds without errors, then it&rsquo;s time to start something up. 
-If you have problems you can&rsquo;t resolve head to the discussion forums
-(<a href="https://sourceforge.net/p/cyberprobe/discussion/">https://sourceforge.net/p/cyberprobe/discussion/</a>).
+If you have problems you can&rsquo;t resolve raise an issue at
+(<a href="https://github.com/cybermaggedon/cyberprobe/issues">https://github.com/cybermaggedon/cyberprobe/issues</a>).
 </p>
 <a name="index-Network-parameters"></a>
 <a name="Establish-network-parameters"></a>
@@ -901,7 +911,8 @@ packets to a local service on port 10000:
 
 <div class="example">
 <pre class="example">&lt;endpoints&gt;
-  &lt;endpoint hostname=&quot;localhost&quot; port=&quot;10000&quot; transport=&quot;tcp&quot; type=&quot;etsi&quot;/&gt;
+  &lt;endpoint hostname=&quot;localhost&quot; port=&quot;10000&quot;
+      transport=&quot;tcp&quot; type=&quot;etsi&quot;/&gt;
 &lt;/endpoints&gt;
 </pre></div>
 
@@ -1651,8 +1662,9 @@ you&rsquo;re continuing the tutorial, you can stop <code>cybermon</code>, and ru
 loaded into ElasticSearch using the following command:
 </p>
 <div class="example">
-<pre class="example">curl -s -XPOST \
-  &quot;http://localhost:9200/cyberprobe/observation/_search?pretty=true&quot; -d '
+<pre class="example">es=localhost:9200
+curl -s -XPOST \
+  &quot;http://$es/cyberprobe/observation/_search?pretty=true&quot; -d '
 {
   &quot;query&quot; : {
     &quot;match_all&quot;: {}
@@ -1942,7 +1954,10 @@ appropriate <code>cybermon</code>.
 <a name="index-Pub_002fsub-delivery"></a>
 If you are going to run <code>cybermon</code>, provide the
 appropriate configuration in file
-<samp>/usr/local/etc/cyberprobe/cybermon.lua</samp>.  The standard installation
+<div class="example">
+<pre class="example"><samp>/usr/local/etc/cyberprobe/cybermon.lua</samp>.
+</pre></div>
+<p>The standard installation
 does not create a file at this location, and you should create one.  You can
 copy an example from the <samp>/usr/local/etc/cyberprobe</samp> directory.
 Use <samp>/usr/local/etc/cyberprobe/zeromq.lua</samp> if you want to use
@@ -1950,7 +1965,7 @@ pub/sub delivery.  See <a href="#cybermon-configuration"><code>cybermon</code> c
 information on constructing the configuration file.
 See <a href="#cybermon-example-configurations"><code>cybermon</code> example configurations</a> for descriptions of the
 example configuration files.
-
+</p>
 </li><li> The installation installs appropriate <code>systemd</code> configuration, and
 you can enable boot-time starting of <code>cyberprobe</code> or
 <code>cybermon</code> by using either or both of these commands:
@@ -2012,8 +2027,9 @@ simple non-persistent, broker-less mechanism.
 </p>
 <p>In order to use this mechanism, you need to ensure you have configured
 <code>cybermon</code> appropriately.  This is normally done by copying the
-configuration file at <samp>/usr/local/etc/cyberprobe/zeromq.lua</samp>
-to <samp>/usr/local/etc/cyberprobe/cybermon.lua</samp> prior to executing
+<samp>zeromq.lua</samp> to <samp>cybermon.lua</samp> in directory
+<samp>/usr/local/etc/cyberprobe/</samp>.
+prior to executing
 <code>cybermon</code>.  Once running, <code>cybermon</code> will publish all events
 to it&rsquo;s publisher port on TCP port 5555.
 </p>
@@ -2092,22 +2108,22 @@ Next: <a href="#The-Google-BigQuery-subscriber" accesskey="n" rel="next">The Goo
 <a name="index-Graph-store-1"></a>
 
 <p>Gaffer is an experimental graph database built on top of Accumulo, Zookeeper
-and Hadoop.  This subscriber writes data to Gaffer in a form intended to
-be used for querying with SPARQL.
-</p>
-<p>Documentation on Gaffer is sparse.  If you want to use this, you will need
-to get familiar with some of my tooling at
-<a href="https://github.com/cybermaggedon/gaffer-tools">https://github.com/cybermaggedon/gaffer-tools</a>.  To get started,
-you may also want to use my stand-alone Docker container at
-<a href="https://hub.docker.com/r/cybermaggedon/gaffer/">https://hub.docker.com/r/cybermaggedon/gaffer/</a>.
+and Hadoop.  This subscriber writes IP-to-IP communication nodes in the
+graph.  If you want to use this, get familiar with Gaffer.
+Gaffer is developed at <a href="https://github.com/gchq/Gaffer">https://github.com/gchq/Gaffer</a>, and I have Gaffer
+containers here: <a href="https://hub.docker.com/r/cybermaggedon/wildfly-gaffer/">https://hub.docker.com/r/cybermaggedon/wildfly-gaffer/</a>.
 </p>
 <p>On the command-line you need to tell the subscriber the location
 of the Gaffer REST API. e.g.
 </p>
 <div class="example">
-<pre class="example">cybermon-elasticsearch tcp://localhost:5555 http://gaffer-host1:8080/example-rest/v1
+<pre class="example">cybermon-gaffer tcp://localhost:5555 \
+    http://gaffer-host1:8080/example-rest/v1
 </pre></div>
 
+<p>The Gaffer subscriber is intended to work with a Gaffer schema which is
+<samp>/usr/local/share/doc/cyberprobe/gaffer-schema.json</samp>.
+</p>
 <p>See <a href="#cybermon_002dgaffer-invocation"><code>cybermon-gaffer</code> invocation</a>.
 </p>
 
@@ -2343,11 +2359,13 @@ immediately actioned.
 
     &lt;!-- Send collected packets to monitor1:10001 in NHIS 1.1
          stream. --&gt;
-    &lt;endpoint hostname=&quot;monitor1&quot; port=&quot;10001&quot; transport=&quot;tcp&quot; type=&quot;nhis1.1&quot;/&gt;
+    &lt;endpoint hostname=&quot;monitor1&quot; port=&quot;10001&quot;
+              transport=&quot;tcp&quot; type=&quot;nhis1.1&quot;/&gt;
 
     &lt;!-- Send collected packets to monitor2:10002 in ETSI LI
          stream. --&gt;
-    &lt;endpoint hostname=&quot;monitor2&quot; port=&quot;10002&quot; transport=&quot;tcp&quot; type=&quot;etsi&quot;/&gt;
+    &lt;endpoint hostname=&quot;monitor2&quot; port=&quot;10002&quot;
+              transport=&quot;tcp&quot; type=&quot;etsi&quot;/&gt;
 
   &lt;/endpoints&gt;
 
@@ -2969,7 +2987,7 @@ and over time, expect to see a richer interface develop.
 </p>
 <p>To start with, we create the structure of the configuration file. Call it
 something with a <code>.lua</code> extension e.g. <code>config.lua</code> so that your
-editor knows how to indent the code. The basic structure is a module which a
+editor knows how to indent the code. The basic structure is a module with a
 number of functions:
 </p>
 <div class="example">
@@ -3128,9 +3146,24 @@ the DNS queries, <code>answers</code> contains the answers in a response message
 provides additional information.
 </p>
 </dd>
+<dt><code>ntp_timestamp_message(context, hdr, info)</code></dt>
+<dd><p>Called when a NTP timestamp message is observed. The decoded NTP message is described
+in the parameters: <code>hdr</code> is the ntp header, <code>info</code> contains the specific timestamp information.
+</p>
+</dd>
+<dt><code>ntp_control_message(context, hdr, info)</code></dt>
+<dd><p>Called when a NTP control message is observed. The decoded NTP message is described
+in the parameters: <code>hdr</code> is the ntp header, <code>info</code> contains the specific control information.
+</p>
+</dd>
+<dt><code>ntp_private_message(context, hdr, info)</code></dt>
+<dd><p>Called when a NTP control message is observed. The decoded NTP message is described
+in the parameters: <code>hdr</code> is the ntp header, <code>info</code> contains the specific private information.
+</p>
+</dd>
 <dt><code>unrecognised_datagram(context, data)</code></dt>
 <dd><p>Called when a datagram is received using a protocol which isn&rsquo;t
-recognised. Currently, only DNS and ICMP are recognised. Any other UDP
+recognised. Currently, only DNS, ICMP and NTP are recognised. Any other UDP
 protocol results in a call to this function.
 </p>
 </dd>
@@ -3443,18 +3476,22 @@ message from server to client.
 <dt>&lsquo;<samp>ftp_response</samp>&rsquo;</dt>
 <dd><p>Records an FTP response (server to client).
 </p></dd>
+<dt>&lsquo;<samp>ntp_message</samp>&rsquo;</dt>
+<dd><p>Records the sending of a NTP message, including the NTP hdr (mode, version, leap second indicator)
+</p></dd>
 </dl>
 
 </dd>
 <dt>&lsquo;<samp>queries</samp>&rsquo;</dt>
-<dd><p>A list of strings describing the set of DNS queries in
-&lsquo;<samp>dns_message</samp>&rsquo; actions.
+<dd><p>Describes DNS query records in &lsquo;<samp>dns_message</samp>&rsquo; actions. Is a list
+of objects with &lsquo;<samp>name</samp>&rsquo;, &lsquo;<samp>type</samp>&rsquo; and &lsquo;<samp>class</samp>&rsquo; fields containing strings
+for name, type and class
 </p>
 </dd>
 <dt>&lsquo;<samp>answers</samp>&rsquo;</dt>
 <dd><p>Describes DNS answer records in &lsquo;<samp>dns_message</samp>&rsquo; actions.  Is a list
-of objects with &lsquo;<samp>name</samp>&rsquo; and &lsquo;<samp>address</samp>&rsquo; fields containing strings
-for name and IP address.
+of objects with &lsquo;<samp>name</samp>&rsquo;, &lsquo;<samp>type</samp>&rsquo; and &lsquo;<samp>class</samp>&rsquo; and &lsquo;<samp>address</samp>&rsquo; fields containing strings
+for name, type and class and IP address.
 </p>
 </dd>
 <dt>&lsquo;<samp>type</samp>&rsquo;</dt>
@@ -3662,7 +3699,8 @@ can be found at
 <p>Example:
 </p><div class="example">
 <pre class="example">cybermon-gaffer
-cybermon-gaffer tcp://localhost:5555 http://gaffer-store:8080/example-rest/v1
+cybermon-gaffer tcp://localhost:5555 \
+    http://gaffer-store:8080/example-rest/v1
 </pre></div>
 
 <dl compact="compact">
@@ -3678,6 +3716,10 @@ to &lsquo;<samp>http://gaffer:8080/example-rest/v1</samp>&rsquo;.
 </dd>
 </dl>
 
+<p>The Gaffer subscriber is intended to work with a Gaffer schema which is
+installed at
+<samp>/usr/local/share/doc/cyberprobe/gaffer-schema.json</samp>.
+</p>
 
 <hr>
 <a name="cybermon_002dcassandra-invocation"></a>
@@ -3854,7 +3896,7 @@ a logical AND.
 </p>
 </dd>
 <dt>&lsquo;<samp>--inbox <var>INBOX</var></samp>&rsquo;</dt>
-<dd><p>Specifies the inbox destination for subscriptions.  Defaults to
+<dd><p>Specifies the inbox destination for subscriptions.  The default value is
 <code>http://localhost:8888/</code>.
 </p>
 </dd>
@@ -4124,9 +4166,11 @@ index called <code>cyberprobe</code> and an object type <code>observation</code>
       &quot;dns&quot;: [&quot;&quot;],
       &quot;ipv4&quot;: [&quot;192.168.1.1&quot;]
     },
-    &quot;queries&quot;: [
-      &quot;news.bbc.co.uk&quot;
-    ],
+    &quot;queries&quot;: {
+      &quot;name&quot;: [&quot;news.bbc.co.uk&quot;],
+      &quot;type&quot;: [&quot;1&quot;],
+      &quot;class&quot;: [&quot;1&quot;]
+    },
     &quot;src&quot;: {
       &quot;udp&quot;: [&quot;57291&quot;],
       &quot;dns&quot;: [&quot;&quot;],
@@ -4332,8 +4376,12 @@ Will be &lsquo;<samp>query</samp>&rsquo; or &lsquo;<samp>response</samp>&rsquo;.
 <dt><code>observation.queries</code></dt>
 <dd><p>Contains a list of DNS queries.  Example:
 </p><div class="example">
-<pre class="example">&quot;queries&quot;:[
-  &quot;news.bbc.co.uk&quot;
+<pre class="example">&quot;queries&quot;: [
+ {
+    &quot;class: &quot;1&quot;,
+    &quot;name&quot;: &quot;news.bbc.co.uk&quot;,
+    &quot;type&quot;: &quot;1&quot;
+ }
 ]
 </pre></div>
 
@@ -4343,15 +4391,22 @@ Will be &lsquo;<samp>query</samp>&rsquo; or &lsquo;<samp>response</samp>&rsquo;.
 </p><div class="example">
 <pre class="example">&quot;answers&quot;: [
   {
-    &quot;name&quot;: &quot;newswww.bbc.net.uk&quot;
+    &quot;class: &quot;1&quot;,
+    &quot;name&quot;: &quot;newswww.bbc.net.uk&quot;,
+    &quot;type&quot;: &quot;1&quot;
+
   },
   {
+    &quot;class: &quot;1&quot;,
     &quot;address&quot;: &quot;212.58.246.85&quot;,
-    &quot;name&quot;: &quot;newswww.bbc.net.uk&quot;
+    &quot;name&quot;: &quot;newswww.bbc.net.uk&quot;,
+    &quot;type&quot;: &quot;1&quot;
   },
   {
+    &quot;class: &quot;1&quot;,
     &quot;address&quot;: &quot;212.58.246.84&quot;,
-    &quot;name&quot;: &quot;newswww.bbc.net.uk&quot;
+    &quot;name&quot;: &quot;newswww.bbc.net.uk&quot;,
+    &quot;type&quot;: &quot;1&quot;
   }
 ]
 </pre></div>
